@@ -21,7 +21,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -219,23 +218,44 @@ nav ul li a {
 }
 
 /* Burger Style */
-
+/* 
 .burger div {
+    width: 25px;
+    height: 2px;
     background-color: #000;
-    height: 3px;
-    width: 100%;
-    transition: all 0.3s ease;
+    margin: 7px;
+    transition: all 0.3s;
+    z-index: 99;
 }
 
 .burger {
+    display: none;
     z-index: 99;
+    position: fixed;
+    top: 33px;
+    right: 35px;
+} */
+
+
+  
+  /* Gaya untuk burger menu pada perangkat seluler */
+  .burger {
     display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 20px;
     cursor: pointer;
-}
+  }
+  
+  .line-1,
+  .line-2,
+  .line-3 {
+    background-color: #333;
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
   
   /* Responsif untuk perangkat seluler */
   @media screen and (max-width: 768px) {
@@ -243,10 +263,6 @@ nav ul li a {
       display: none;
       flex-direction: column;
       align-items: center;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
       background-color: #333;
       padding: 10px;
     }
@@ -259,15 +275,23 @@ nav ul li a {
       display: flex;
     }
   
-    .nav.active .line:nth-child(1) {
+    .nav li {
+      margin: 10px 0;
+    }
+  
+    .nav button {
+      padding: 8px;
+    }
+  
+    .nav.active .line-1 {
       transform: translateY(7px) rotate(45deg);
     }
   
-    .nav.active .line:nth-child(2) {
+    .nav.active .line-2 {
       opacity: 0;
     }
   
-    .nav.active .line:nth-child(3) {
+    .nav.active .line-3 {
       transform: translateY(-7px) rotate(-45deg);
     }
   }
@@ -455,10 +479,11 @@ nav ul li a {
     transform: translateY(-5px);
     background-color: var(--PrimaryBackgroundColor);
   }
-/* 
-footer 
- */
-  #footer {
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
     background: #f7f8f9;
     color: #45505b;
     font-size: 14px;
